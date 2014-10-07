@@ -1,6 +1,7 @@
 --[[ SkateMOTD ]]--
 --[[ Client Side Files ]]--
 AddCSLuaFile('sh_config.lua')
+AddCSLuaFile('lib/sh_colors.lua')
 --[[ Includes ]]--
 include('sh_config.lua')
 
