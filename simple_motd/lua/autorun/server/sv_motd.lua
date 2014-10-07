@@ -25,4 +25,3 @@ local function OpenMotdOnCommand( ply, command, team )
 end
 end
 hook.Add( "PlayerSay", "OpenMotdOnCommand", OpenMotdOnCommand )
-
