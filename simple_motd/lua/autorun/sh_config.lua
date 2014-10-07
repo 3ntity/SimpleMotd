@@ -1,4 +1,4 @@
 SHB = {} -- All in a nice Table now.
 
-SHB.OpenOnLoad = true
+SHB.OpenOnFirstSpawn = true
 SHB.OpenText = { "motd", "rules", "help" } 

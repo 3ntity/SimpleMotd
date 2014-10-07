@@ -17,7 +17,7 @@ hook.Add("PlayerSay", "openSMotD", openSMotD)
 
 --[[ Open on Spawn ]]--
 function openSMOTDSpawn(ply)
-	if SMOTD.OpenOnLoad then
+	if SMOTD.OpenOnFirstSpawn then
 		ply:Command(SMOTD.OpenCommand)
 	end
 end
