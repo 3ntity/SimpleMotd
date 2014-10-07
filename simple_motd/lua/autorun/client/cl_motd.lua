@@ -1,9 +1,23 @@
 include('sh_config.lua')
 
+
+ 	
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 																		--Main Frame (Shell)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 			local MotdMain = vgui.Create( "DFrame" )
 			MotdMain:SetPos( ScrW()/2-300, ScrH()/2-350 )
@@ -43,11 +57,13 @@ include('sh_config.lua')
 			body:SetSize( 420, 250 ) 
 			body.Paint =  function()
 			draw.RoundedBox( 0, 0, 0, body:GetWide(), body:GetTall(), Color( 218,228,235, 255 ) )
-			end---------------------------------------------------------------------------------------------------------------------------------------------------------
+			end
+			
+			---------------------------------------------------------------------------------------------------------------------------------------------------------
 																		--Nav Menu
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
+/*
 	local NavButtonOne = vgui.Create( "DButton", MotdNav )
 	NavButtonOne:SetPos( 0, 0 )
 	NavButtonOne:SetText( "" )
@@ -72,7 +88,38 @@ include('sh_config.lua')
 	NavButtonOne.DoClick = function()
 		print( "Button was clicked!" )
 	end
+	
+*/
 
+local buttons = {}
+
+for k,v in pairs (MotdButtons) do 
+	buttons[k] = vgui.Create("DButton", MotdNav)
+		buttons[k]:SetSize(100, 100)
+		buttons[k]:SetPos( 00, (k-1) * 100)
+		buttons[k].Hover = false 
+		buttons[k]:SetText(buttons[k])
+		buttons[k].Paint =  function()
+			draw.RoundedBox( 0, 0, 0, buttons[k]:GetWide(), buttons[k]:GetTall(), Color( 46,54,65, 255 ) )
+			end
+			buttons[k].OnCursorEntered = function()	
+							surface.PlaySound("garrysmod/ui_return.wav")
+							buttons[k].Paint = function()
+							draw.RoundedBox( 0, 0, 0, buttons[k]:GetWide(), buttons[k]:GetTall(), Color( 255, 255, 255, 255 ) )
+						end
+				end
+
+				buttons[k].OnCursorExited = function()
+							buttons[k].Paint = function()
+							draw.RoundedBox( 2, 0, 0, buttons[k]:GetWide(), buttons[k]:GetTall(), Color( 46,54,65, 255 ) )
+						end
+				end
+
+
+	buttons[k].DoClick = function()
+		
+	end
+end
 
 
 

@@ -5,22 +5,31 @@ OpenCommands = { "!motd", "!rules", "!rules", "!help" }
 MotdButtons = {
 	//New Button
 	{
-		PageTitle = "Page One",
+		PageTitles = "Page One", "swag", "very cool", "sweg",
 		PageUrl = false,
 	},
 	//New Button
+
+
 	{
-		PageTitle = "PageTwo",
-		PageUrl = true,
-		PageUrlLink = "https://www.google.com",
 
 	},
+
+
+	{
+
+	
+	},
+
+	{
+
+	},
+
 
 }
 
 ServerName	= "A Server"
 OpenOnLoad = true
-
 
 
 
