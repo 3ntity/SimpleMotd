@@ -1,28 +1,21 @@
-include ('sh_config.lua')
+--[[ SkateMOTD ]]--
+--[[ Client Side Files ]]--
 AddCSLuaFile('sh_config.lua')
+--[[ Includes ]]--
+include('sh_config.lua')
 
-local function OpenMenu( ply )
-if OpenOnLoad == true then
-umsg.Start( "SkateMOTD", ply )
-umsg.End()
-end
-end
-hook.Add( "PlayerInitialSpawn", "OpenMotdOnLoad", OpenMenu )
-
--- Console Command
-local function OpenMotdOnConsoleCommand( ply )
-	umsg.Start( "SkateMOTD", ply )
-	umsg.End()
-end
-concommand.Add( "SimpleMotd", OpenMotdOnConsoleCommand )
-
--- Chat Command
-local function OpenMotdOnCommand( ply, command, team )
-	for k,v in pairs(OpenCommands) do
-	if command == v then
-	OpenMotdOnConsoleCommand( ply )
+--[[ Chatcommand ]]--
+function openSMOTD(ply, text)
+	if text:lower():find( "^[/!]motd?$" ) then
+		ply:ConCommand(SMOTD.OpenCommand)
 	end
 end
-end
-hook.Add( "PlayerSay", "OpenMotdOnCommand", OpenMotdOnCommand )
 
+hook.Add("PlayerSay", "openSMotD", openSMotD)
+
+--[[ Open on Spawn ]]--
+function openSMOTDSpawn(ply)
+	ply:Command(SMOTD.OpenCommand)
+end
+
+hook.Add("PlayerInitialSpawn", "onSpawn", onSpawnMOTD)
