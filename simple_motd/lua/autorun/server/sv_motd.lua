@@ -2,6 +2,7 @@
 --[[ Client Side Files ]]--
 AddCSLuaFile('sh_config.lua')
 AddCSLuaFile('lib/sh_colors.lua')
+AddCSLuaFile('lib/sh_functions.lua')
 --[[ Includes ]]--
 include('sh_config.lua')
 
@@ -19,7 +20,7 @@ hook.Add("PlayerSay", "openSMotD", openSMotD)
 --[[ Open on Spawn ]]--
 function openSMOTDSpawn(ply)
 	if SMOTD.OpenOnFirstSpawn then
-		ply:Command(SMOTD.OpenCommand)
+		ply:ConCommand(SMOTD.OpenCommand)
 	end
 end
 

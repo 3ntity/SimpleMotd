@@ -1,11 +1,23 @@
+--[[ SkateMOTD ]]--
+--[[ Includes ]]--
 include('sh_config.lua')
+include('lib/sh_colors.lua')
+include('lib/sh_functions.lua')
 
+--[[ Preconfig ]]--
+SMOTD.IsOpen = false
 
- 	
+--[[ Concommand ]]--
 
-
-
-
+concommand.Add(SMOTD.OpenCommand, function(ply)
+	if SMOTD.IsOpen then
+		MotdMain:Close()
+		SMOTD.IsOpen = false
+	else
+		BuildMOTD()
+		SMOTD.IsOpen = true
+	end
+end)
 
 
 
@@ -30,7 +42,7 @@ include('sh_config.lua')
 			end
 			MotdMain:MakePopup()	
 			MotdMain:MoveTo( ScrW()/2-300, ScrH()/2-200, 3, 0, 1)
-
+			SMOTD.IsOpen = true
 
 
 			local MotdNav = vgui.Create( "DPanel", MotdMain)
@@ -48,7 +60,10 @@ include('sh_config.lua')
 			draw.RoundedBox( 0, 0, 0, MotdStyleCloseButton:GetWide(), MotdStyleCloseButton:GetTall(), Color( 238,17,17, 255 ) )
 			end
 			MotdStyleCloseButton.DoClick = function()
-				MotdMain:Close()
+				if SMOTD.IsOpen then
+					MotdMain:Close()
+					SMOTD.IsOpen = false
+				end
 			end
 
 
