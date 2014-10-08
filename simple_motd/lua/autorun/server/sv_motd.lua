@@ -1,4 +1,4 @@
---[[ SkateMOTD ]]--
+--[[ SimpleMotd ]]--
 --[[ Client Side Files ]]--
 AddCSLuaFile('sh_config.lua')
 AddCSLuaFile('sh_theme.lua')
