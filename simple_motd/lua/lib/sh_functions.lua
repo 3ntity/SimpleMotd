@@ -1,4 +1,5 @@
 include('../sh_config.lua')
+--[[Dont Mess With This If You Have No Clue What Your Doing]]--
 local Show = {}
 --[[ Add Button
 	usage: addButton( Position X, Position Y, Wide, Height, Parent Panel, Button caption ) 
