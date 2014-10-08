@@ -29,6 +29,13 @@ function BuildMOTD()
 		draw.RoundedBox( 0, 0, 0, MotdNav:GetWide(), MotdNav:GetTall(), Color( 46,54,65, 255 ) )
 	end
 	
+	NavExtra = vgui.Create( "DPanel", MotdMain) -- Just the small bar to the right
+	NavExtra:SetPos( 100, 0 ) 
+	NavExtra:SetSize( 10	, 400 ) 
+	NavExtra.Paint =  function()
+		draw.RoundedBox( 0, 0, 0, NavExtra:GetWide(), NavExtra:GetTall(), Color( 42,51,64, 255 ) )
+	end
+	
 	local MotdStyleCloseButton = vgui.Create( "DButton", MotdMain )
 	MotdStyleCloseButton:SetPos( 570, 0 )
 	MotdStyleCloseButton:SetText( "X" )
